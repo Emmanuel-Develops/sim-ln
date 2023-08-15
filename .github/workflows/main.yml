@@ -16,16 +16,6 @@ jobs:
         with:
           toolchain: stable
       - uses: actions-rs/cargo@v1
-        name: cargo build
-        with:
-          command: build
-          args: --release --all-features
-      - uses: actions-rs/cargo@v1
-        name: cargo test
-        with:
-          command: test
-          args: --all-targets --benches
-      - uses: actions-rs/cargo@v1
         name: cargo fmt
         with:
           command: fmt
@@ -35,3 +25,13 @@ jobs:
         with:
           command: clippy
           args: -- --deny warnings
+      - uses: actions-rs/cargo@v1
+        name: cargo build
+        with:
+          command: build
+          args: --release --all-features
+      - uses: actions-rs/cargo@v1
+        name: cargo test
+        with:
+          command: test
+          args: --all-targets --benches
